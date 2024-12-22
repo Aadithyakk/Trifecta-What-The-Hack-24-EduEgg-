@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenAI Chatbot</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mic"
+    />
+  </head>
+  <body>
+    <h1>EduEgg</h1>
+    <div class="input-container">
+      <input type="text" id="user-input" placeholder="Type your message..." />
+      <button onclick="sendMessage()">Send</button>
+      <button onclick="startDictation()">
+        <span class="material-symbols-outlined"> mic </span>
+      </button>
+    </div>
+    <div class="chat-container" id="chat-container"></div>
+    <div>
+      <canvas id="myChart" width="40" height="15"></canvas>
+    </div>
+    <button id="getData">Votes</button>
+    <button id="sendData">Send Data</button>
+    <p id="response"></p>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>
+      document
+        .getElementById("sendData")
+        .addEventListener("click", loadLabelScript);
+
+      function loadLabelScript() {
+        const existingScript = document.querySelector('script[src="label.js"]');
+        if (existingScript) {
+          existingScript.remove();
+        }
+        const script = document.createElement("script");
+        script.src = "label.js";
+        document.body.appendChild(script);
+      }
+    </script>
+    <!-- <script src="label.js"></script> -->
+  </body>
+</html>
