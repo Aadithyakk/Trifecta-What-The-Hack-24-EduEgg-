@@ -70,7 +70,7 @@ async function sendMessage() {
     headers: {
       "Content-Type": "application/json",
       Authorization:
-        "Bearer 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",
+        "Bearer API_KEY",
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
